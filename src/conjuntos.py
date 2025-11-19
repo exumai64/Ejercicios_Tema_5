@@ -9,8 +9,17 @@ def elimina_duplicados(lista: list) -> list:
     Devuelve:
     list: La lista sin elementos duplicados, manteniendo el orden original.
     """
-    # TODO: Implementar la función
-    pass
+    #uso un conjunto en vez de una lista, porque voy a usar "in"  
+    res = []
+    ya_vistos = set()
+    for elem in lista:
+        if elem not in ya_vistos:
+            res.append(elem)
+            ya_vistos.add(elem)
+    return res
+    # TODO: Implementar la misma función pero modifica la lista recibida
+    #en vez de devolver una nueva.
+    
 
 def une_conjuntos(lista_de_conjuntos: list[set]) -> set:
     """
@@ -22,8 +31,12 @@ def une_conjuntos(lista_de_conjuntos: list[set]) -> set:
     Devuelve:
     set: El conjunto resultante de la unión de todos los conjuntos.
     """
-    # TODO: Implementar la función
-    pass
+    res = set()
+    for conjunto in lista_de_conjuntos:
+        res = res.union(conjunto)
+    return res
+    
+    
 
 def intersecta_conjuntos(lista_de_conjuntos: list[set]) -> set:
     """
@@ -35,5 +48,14 @@ def intersecta_conjuntos(lista_de_conjuntos: list[set]) -> set:
     Devuelve:
     set: El conjunto resultante de la intersección de todos los conjuntos.
     """
-    # TODO: Implementar la función
-    pass
+
+    if len(lista_de_conjuntos) == 0:
+        return set() #Si la lista esta vacía, el conjunto es 0. Pero si no ponemos esta caso, da error.
+
+    res = lista_de_conjuntos[0]
+    for i in lista_de_conjuntos[1:]:
+        res = res.intersection(i)
+    return res
+
+    
+    

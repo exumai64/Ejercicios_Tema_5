@@ -28,9 +28,19 @@ def indexa_por_iniciales(texto: str) -> dict[str, set[str]]:
          que comienzan por dicha inicial.
     
     """
-    # TODO: Implementar la función
-    pass
+    res = {}
+    lista_palabras = texto.lower().split()
+    for p in lista_palabras:
+        inicial = p[0]
+        if inicial in res:
+            res[inicial] = set()
+        res[inicial].add(p)
+    return res
 
+
+    
+
+   
 def construye_frecuencias_bigramas(texto: str) -> dict[str, float]:
     """
     Construye un diccionario con las frecuencias normalizadas de cada bigrama 
